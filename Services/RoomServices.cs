@@ -31,7 +31,7 @@ public class RoomServices : IRoomRepository
     public async Task Delete(int id)
     {
         var room = await GetById(id);
-        if (room != null)
+        if (room! == null)
         {
             _context.Rooms.Remove(room);
             await _context.SaveChangesAsync();

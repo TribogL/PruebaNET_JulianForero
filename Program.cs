@@ -19,7 +19,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.Parse("8.0.20-mysql")));
 
-builder.Services.AddScoped<IRoomsRepository, RoomServices>();
+builder.Services.AddScoped<IRoomRepository, RoomServices>();
 builder.Services.AddScoped<IGuestRepository, GuestServices>();
 builder.Services.AddScoped<IRoomTypeRepository, RoomTypeServices>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeServices>();
