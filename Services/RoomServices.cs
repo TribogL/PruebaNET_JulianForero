@@ -6,7 +6,7 @@ using PruebaNET_JulianForero.Model;
 using PruebaNET_JulianForero.Repositories;
 
 namespace PruebaNET_JulianForero.Services;
-public class RoomServices : IRoomsRepository
+public class RoomServices : IRoomRepository
 {
     private readonly ApplicationDbContext _context;
 
@@ -35,6 +35,23 @@ public class RoomServices : IRoomsRepository
         {
             _context.Rooms.Remove(room);
             await _context.SaveChangesAsync();
+        }
+    }
+     public async Task<bool> CheckExistence(int id)
+    {
+
+        try
+        {
+            return await _context.Rooms.AnyAsync(v => v.Id == id);
+        }
+
+        catch (DbUpdateException dbEx)
+        {
+            throw new Exception("Error al agregar la papa a la base de datos.", dbEx);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Ocurrió un erro inesperado al agregar la papa:", ex);
         }
     }
 

@@ -11,5 +11,5 @@ public interface IGuestRepository
     Task AddGuest(GuestDTO guestDto);
     Task UpdateGuest(int id, GuestDTO guestDTO);
     Task Delete(int id);
-
+    Task<bool> CheckExistence(int id);
 }

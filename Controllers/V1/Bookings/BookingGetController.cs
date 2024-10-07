@@ -1,12 +1,13 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace PruebaNET_JulianForero.Controllers.V1.Bookings
+namespace PruebaNET_JulianForero.Controllers.V1.Bookings;
+
+[ApiController]
+[Route("api/[controller]")]
+[ApiExplorerSettings(GroupName = "v1")]
+[Tags("Bookings")]
+public class BookingGetController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class BookingGetController : ControllerBase
-    {
-        
-    }
+
 }

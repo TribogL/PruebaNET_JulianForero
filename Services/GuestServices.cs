@@ -57,6 +57,23 @@ public class GuestServices : IGuestRepository
         }
 
     }
+     public async Task<bool> CheckExistence(int id)
+    {
+
+        try
+        {
+            return await _context.Guests.AnyAsync(v => v.Id == id);
+        }
+
+        catch (DbUpdateException dbEx)
+        {
+            throw new Exception("Error al agregar la papa a la base de datos.", dbEx);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Ocurrió un erro inesperado al agregar la papa:", ex);
+        }
+    }
     public async Task Delete(int id)
     {
         var guest = await _context.Guests.FindAsync(id);
