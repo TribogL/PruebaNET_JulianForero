@@ -5,11 +5,11 @@ using PruebaNET_JulianForero.Model;
 using PruebaNET_JulianForero.Repositories;
 
 namespace PruebaNET_JulianForero.Services;
-public class RoomrTypeServeces : IRoomTypeRepocitory
+public class RoomTypeServices : IRoomTypeRepository
 {
     private readonly ApplicationDbContext _context;
 
-    public RoomrTypeServeces(ApplicationDbContext context)
+    public RoomTypeServices(ApplicationDbContext context)
     {
         _context = context;
     }

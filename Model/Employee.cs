@@ -12,32 +12,33 @@ public class Employee
     [Column("id")]
     public int Id { get; set; }
 
-    [MaxLength(50)]
+
     [Column("first_Name")]
     public string FirstName { get; set; }
 
-    [MaxLength(50)]
+
     [Column("last_Name")]
     public string LastName { get; set; }
 
-    [MaxLength(255)]
+
     [Column("email")]
     public string Email { get; set; }
-    
-    [MaxLength(20)]
+
+
     [Column("Iientification_Number")]
     public string IdentificationNumber { get; set; }
 
-    [MaxLength(255)]
+
     [Column("password")]
     public string Password { get; set; }
 
 
-    public Employee(string firstName, string lastName, string email, string IdentificationNumber, string password)
+    public Employee(string firstName, string lastName, string email, string identificationNumber, string password)
     {
-        FirstName = firstName; 
-        LastName = lastName; 
+        FirstName = firstName.ToLower().Trim();
+        LastName = lastName.ToLower().Trim();
         Email = email;
+        IdentificationNumber = identificationNumber;
         Password = password;
     }
 }

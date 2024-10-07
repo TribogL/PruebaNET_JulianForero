@@ -13,23 +13,23 @@ public class Guest
     [Column("id")]
     public int Id { get; set; }
 
-    [MaxLength(255)]
+   
     [Column("first_Name")]
     public string FirstName { get; set; }
 
-    [MaxLength(255)]
+   
     [Column("last_Name")]
     public string LastName { get; set; }
 
-    [MaxLength(255)]
+   
     [Column("email")]
     public string Email { get; set; }
 
-    [MaxLength(20)]
+ 
     [Column("Iientification_Number")]
     public string IdentificationNumber { get; set; }
 
-    [MaxLength(20)]
+   
     [Column("phone_Number")]
     public string PhoneNumber { get; set; }
 
@@ -37,12 +37,13 @@ public class Guest
     public DateOnly BirthDate { get; set; }
 
 
-    public Guest(string firstName, string lastName, string email, string IdentificationNumber, string phoneNumber, DateOnly birthDate)
+    public Guest(string firstName, string lastName, string email, string identificationNumber, string phoneNumber, DateOnly birthDate)
     {
-        FirstName = firstName;
-        LastName = lastName;
-        Email = email;
-        PhoneNumber = phoneNumber;
+        FirstName = firstName.ToLower().Trim();
+        LastName = lastName.ToLower().Trim();
+        Email = email.ToLower().Trim();
+        IdentificationNumber = identificationNumber;
+        PhoneNumber = phoneNumber.ToLower().Trim();
         BirthDate = birthDate;
     }
 

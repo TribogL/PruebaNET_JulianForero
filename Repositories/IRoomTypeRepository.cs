@@ -4,7 +4,7 @@ using PruebaNET_JulianForero.Model;
 
 namespace PruebaNET_JulianForero.Repositories;
 
-public interface IRoomTypeRepocitory
+public interface IRoomTypeRepository
 {
     Task<IEnumerable<RoomType>> GetAll();
     Task<RoomType?> GetById(int id);

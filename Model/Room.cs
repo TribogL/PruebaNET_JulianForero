@@ -13,20 +13,17 @@ public class Room
     [Column("id")]
     public int Id { get; set; }
 
-    [MaxLength(250)]
+
     [Column("room_number")]
     public string RoomNumber { get; set; }
 
-    // Foreign key to RoomType
+
     [Column("room_type_id")]
     public int RoomTypeId { get; set; }
 
-
-    [ForeignKey("RoomTypeId")]
-    public RoomType RoomType { get; set; }
-
-    [Column("price_per_nigth")]
+    [Column("price_per_night")]
     public double PricePerNight { get; set; }
+    
 
     [Column("availlability")]
     public bool Availability { get; set; }
@@ -34,13 +31,19 @@ public class Room
     [Column("max_occupancy_person")]
     public byte MaxOccupancyPerson { get; set; }
 
+    // Foreign keys
 
-    public Room(string roomNumber, int roomTypeId, double pricePereNigth, bool availlability, byte maxOccupancyPerson)
+    // Foreign key to RoomType
+    [ForeignKey("RoomTypeId")]
+    public RoomType RoomType { get; set; }
+
+
+    public Room(string roomNumber, int roomTypeId, double pricePerNight, bool availability, byte maxOccupancyPerson)
     {
-        RoomNumber = roomNumber;
+        RoomNumber = roomNumber.ToLower().Trim();
         RoomTypeId = roomTypeId;
-        PricePerNight = pricePereNigth;
-        Availability = availlability;
+        PricePerNight = pricePerNight;
+        Availability = availability;
         MaxOccupancyPerson = maxOccupancyPerson;
     }
 }

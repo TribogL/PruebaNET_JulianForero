@@ -12,11 +12,11 @@ public class RoomType
     [Column("id")]
     public int Id { get; set; }
 
-    [MaxLength(255)]
+   
     [Column("name")]
     public string Name { get; set; }
 
-    [MaxLength(255)]
+  
     [Column("description")]
     public string Description { get; set; }
 
@@ -24,8 +24,8 @@ public class RoomType
 
     public RoomType(string name, string description)
     {
-        Name = name;
-        Description = description;
+        Name = name.ToLower().Trim();
+        Description = description.ToLower().Trim();
     }
 
 }
