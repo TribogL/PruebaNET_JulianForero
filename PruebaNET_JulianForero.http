@@ -1,0 +1,6 @@
+@PruebaNET_JulianForero_HostAddress = http://localhost:5119
+
+GET {{PruebaNET_JulianForero_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
