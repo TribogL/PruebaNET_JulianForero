@@ -5,7 +5,7 @@ using PruebaNET_JulianForero.Repositories;
 
 namespace PruebaNET_JulianForero.Controllers.V1.Guests;
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/[controller]")]
 [ApiExplorerSettings(GroupName = "v1")]
 [Tags("Guests")]
 public class GuestCreateController(IGuestRepository guestRepository)  : GuestController(guestRepository)
